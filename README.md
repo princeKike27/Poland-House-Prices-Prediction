@@ -1,1 +1,3 @@
 # Poland-House-Prices-Prediction
+
+For this project I analyzed data from the housing market in 3 cities in Poland Krakow, Warsaw and Poznań ....
