@@ -8,7 +8,7 @@ Throught the project you will be able to find:
 - Analysis of Relevant features to build the model.
 - Multiple Linear Regression Model to predict a houses' price.
 - Cost Function C
-- $\nabla C$ with respect to model parameters.
+- Gradient of C with respect to model parameters.
 - Gradient Descent of model.
 - Function to Predict a House Price.
 - Creation of Web App to visualize model - Poland House Price Calculator.
