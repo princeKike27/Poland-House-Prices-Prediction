@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Poland House Price Prediction</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- JAVASCRIPT -->
+		<script src="app.js"></script>
+		<!-- JQUERY -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<form action="" id="price_form">
+					<h3>Poland House Price Calculator</h3>
+					<p class="heading">Did you ever wondered how much would it cost to buy a house in <em>Warsaw, Krakow or Poznán</em>?
+						Use the Poland House Price Calculator to get an estimated price in <em>Euros.</em></p>
+
+					<!-- CITY -->
+					<label class="form-group">
+						<input type="text" id="uiCity" class="form-control"  required>
+						<span>City</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- # FLOORS -->
+					<label class="form-group" >
+						<input type="text" id="uiFloors" class="form-control"  required>
+						<span for=""># Floors</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- # ROOMS -->
+					<label class="form-group">
+						<input type="text" id="uiRooms" class="form-control"  required>
+						<span for=""># Rooms</span>
+						<span class="border"></span>
+					</label>
+
+
+					<!-- AREA Sq Meters -->
+					<label class="form-group" >
+						<input type="text" id="uiSq" class="form-control"  required>
+						<span for="">Area (m^2)</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- YEAR BUILT -->
+					<label class="form-group" >
+						<input type="text" id="uiYear" class="form-control"  required>
+						<span for="">Year Built</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- BUTTON TO SUBMIT FORM AND PREDICT PRICE -->
+					<button onclick="onClickPredictPrice()" type="button">Predict Price
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+
+				<!-- DISPLAY PREDICTED PRICE -->
+				<div id="uiPredictPrice" class="result"><h2></h2></div>
+			</div>
+		</div>
+
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
