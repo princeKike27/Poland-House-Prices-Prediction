@@ -15,6 +15,7 @@ function onClickPredictPrice() {
   // variable to store url
   var url = "http://127.0.0.1:5000/predict_house_price";
 
+
   //Route 5000 Port on Nginx conf file
   //location ~ /api/ {
   //rewrite ^/api(.*) $1 break;
