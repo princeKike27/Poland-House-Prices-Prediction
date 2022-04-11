@@ -2,6 +2,10 @@
 from flask import Flask, request, jsonify
 import utilities
 
+'''FLASK
+Light web framework that allows you to build web applications
+'''
+
 app = Flask(__name__)
 
 
@@ -36,12 +40,6 @@ def predict_house_price():
     # * requesting code from any origin can access the resource
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
-
-
-
-
-
 
 
 

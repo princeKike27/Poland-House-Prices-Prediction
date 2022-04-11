@@ -63,6 +63,5 @@ def predict_price(city, floor, rooms, sq, year):
 '''MAIN'''
 
 if __name__ == '__main__':
-    # load_saved_artifacts()
     # call predict_price function
     print(predict_price('Poznan', 3, 2, 42.39, 1985))
