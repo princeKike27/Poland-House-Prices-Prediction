@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Poland House Price Prediction</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- FAVICON -->
+		<link rel='icon' type='image/x-icon' href='../static/images/startup.png'
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="../static/css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+
+			<div class="inner">
+				<form action="{{url_for('predict')}}" id="price_form", method='POST'>
+					<h3>Poland House Price Calculator</h3>
+					<p class="heading">Did you ever wondered how much would it cost to buy a house in <em>Warsaw, Krakow or Poznán</em>?
+						Use the Poland House Price Calculator to get an estimated price in <em>Euros.</em></p>
+
+					<!-- CITY -->
+					<label class="form-group">
+						<input type="text" id="uiCity" class="form-control"  name='city_form' required>
+						<span>City</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- # FLOORS -->
+					<label class="form-group" >
+						<input type="text" id="uiFloors" class="form-control"  name='floors_form' required>
+						<span for=""># Floors</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- # ROOMS -->
+					<label class="form-group">
+						<input type="text" id="uiRooms" class="form-control"  name='rooms_form' required>
+						<span for=""># Rooms</span>
+						<span class="border"></span>
+					</label>
+
+
+					<!-- AREA Sq Meters -->
+					<label class="form-group" >
+						<input type="text" id="uiSq" class="form-control"  name='sq_form' required>
+						<span for="">Area (m^2)</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- YEAR BUILT -->
+					<label class="form-group" >
+						<input type="text" id="uiYear" class="form-control"  name='year_form' required>
+						<span for="">Year Built</span>
+						<span class="border"></span>
+					</label>
+
+					<!-- BUTTON TO SUBMIT FORM AND PREDICT PRICE -->
+					<button type="submit">Predict Price
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+
+				<br></br>
+				<!-- DISPLAY PREDICTIVE PRICE -->
+			 <h3>{{prediction_text}}</h3>
+
+			 <!-- CORP -->
+			 <div class="corp"><h2>&copy; 2022 Kike27</h2></div>
+
+			</div>
+		</div>
+
+
+
+
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
