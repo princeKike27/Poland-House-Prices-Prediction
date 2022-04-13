@@ -16,6 +16,7 @@
 	<body>
 
 		<div class="wrapper">
+
 			<div class="inner">
 				<form action="{{url_for('predict')}}" id="price_form", method='POST'>
 					<h3>Poland House Price Calculator</h3>
@@ -67,6 +68,10 @@
 				<br></br>
 				<!-- DISPLAY PREDICTIVE PRICE -->
 			 <h3>{{prediction_text}}</h3>
+
+			 <!-- CORP -->
+			 <div class="corp"><h2>&copy; 2022 Kike27</h2></div>
+
 			</div>
 		</div>
 
