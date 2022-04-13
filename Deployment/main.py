@@ -1,0 +1,66 @@
+# import modules
+import numpy as np
+import pickle
+from flask import Flask, request, jsonify, render_template, url_for
+
+'''FLASK
+Light web framework that allows you to build web applications
+'''
+# initialize Flask
+app = Flask(__name__)
+
+# read and model file in binary >> rb
+with open('poland_house_prices_model.pickle', 'rb') as f:
+    model = pickle.load(f)
+
+'''*****************************************************************************'''
+''' ENDPOINTS & ROUTINES
+HTTP >> request-response protocol to connect between a client and a server
+GET  >> request data from a specified source
+POST >> data sent to the server to create/update a resurce
+'''
+
+# expose http endpoint >> @server_route == function name
+'''HOME PAGE'''
+@app.route('/')
+def home():
+    # render html page
+    return render_template('home.html')
+
+'''PREDICT PRICE'''
+@app.route('/predict',methods = ['POST'])
+def predict():
+    # save values from form
+    city = request.form.get('city_form')
+    floors = request.form.get('floors_form')
+    rooms = request.form.get('rooms_form')
+    sq = request.form.get('sq_form')
+    year = request.form.get('year_form')
+
+    # standarize values to be fed into the Model
+    city = 1 if city == 'Warsaw' else 0
+    floors = float(floors)
+    rooms = float(rooms)
+    sq = (float(sq) - 25.01) / (150 - 25.01)
+    year = 1 if int(year) >= 1970 else 0
+
+    # save intercept and parameters from model
+    b_0 = model['intercept'][0]
+    b_1 = model['params'][0]
+    b_2 = model['params'][1]
+    b_3 = model['params'][2]
+    b_4 = model['params'][3]
+    b_5 = model['params'][4]
+
+    # calculate predictive price
+    predictive_price = b_0 + b_1*city + b_2*floors + b_3*rooms + b_4*sq + b_5*year
+    predictive_price *= 100000
+
+    return render_template('home.html', prediction_text=f'€{predictive_price:.2f}')
+
+
+if __name__ == '__main__':
+    print('*' * 100)
+    print('Starting Python Flask Server for Poland House Prices Prediction...', '\n')
+    print(f'Model: {model}', '\n')
+    app.run(debug=True)
