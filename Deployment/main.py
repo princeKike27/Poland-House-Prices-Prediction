@@ -31,18 +31,18 @@ def home():
 @app.route('/predict',methods = ['POST'])
 def predict():
     # save values from form
-    city = request.form.get('city_form')
-    floors = request.form.get('floors_form')
-    rooms = request.form.get('rooms_form')
-    sq = request.form.get('sq_form')
-    year = request.form.get('year_form')
+    city_f = request.form.get('city_form')
+    floors_f = request.form.get('floors_form')
+    rooms_f = request.form.get('rooms_form')
+    sq_f = request.form.get('sq_form')
+    year_f = request.form.get('year_form')
 
     # standarize values to be fed into the Model
-    city = 1 if city == 'Warsaw' else 0
-    floors = float(floors)
-    rooms = float(rooms)
-    sq = (float(sq) - 25.01) / (150 - 25.01)
-    year = 1 if int(year) >= 1970 else 0
+    city = 1 if city_f == 'Warsaw' else 0
+    floors = float(floors_f)
+    rooms = float(rooms_f)
+    sq = (float(sq_f) - 25.01) / (150 - 25.01)
+    year = 1 if int(year_f) >= 1970 else 0
 
     # save intercept and parameters from model
     b_0 = model['intercept'][0]
@@ -56,6 +56,10 @@ def predict():
     predictive_price = b_0 + b_1*city + b_2*floors + b_3*rooms + b_4*sq + b_5*year
     predictive_price *= 100000
 
+    print('\n')
+    print(f'City: {city_f}, # Floors: {floors_f}, # Rooms: {rooms_f}, Area m^2: {sq_f}, Year Built: {year_f}')
+    print(f'Predicted Price: €{predictive_price:.2f}', '\n')
+    
     return render_template('home.html', prediction_text=f'€{predictive_price:.2f}')
 
 
