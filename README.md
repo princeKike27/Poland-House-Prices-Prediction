@@ -12,3 +12,4 @@ Throught the project you will be able to find:
 - Gradient Descent of model.
 - Function to Predict a House Price.
 - Creation of Web App to visualize model - Poland House Price Calculator.
+  - https://poland-house-predictor.herokuapp.com/
